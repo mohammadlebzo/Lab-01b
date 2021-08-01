@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab_01</title>
+    <style>
+        *
+        {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        header
+        {
+            background-color: purple;
+            border: 1px double gold;
+        }
+
+        main
+        {
+            background-color: rgb(12, 12, 12);
+
+        }
+
+        footer
+        {
+            background-color: purple;
+            border: 1px double gold;
+            
+        }
+
+        main p
+        {
+            margin-left: 10px;
+            font-family: "MV Boli";
+        }
+
+        .p1
+        {
+            background-color: white;
+            color: black;
+        }
+        .p2
+        {
+            background-color: purple;
+            color: gold;
+        }
+        .p3
+        {
+            background-color: blue;
+            color: red;
+        }
+        .p4
+        {
+            background-color: pink;
+            color: green;
+        }
+
+        button
+        {
+            background:#808080; 
+            color:white;
+            height: 30px;
+            width: 250px;
+            font-size: 20px;
+            border: 4px double gold;
+
+            margin: 5px;
+
+            transition: all 0.5s;
+            cursor: pointer;
+
+        }
+
+                                        /*Classes and ID*/  
+        .button span 
+        {
+            cursor: pointer;
+            display: inline-block;
+            position: relative;
+            transition: 0.5s;
+        }
+
+
+        .button span:after 
+        {
+            content: '\00bb';
+            position: absolute;
+            opacity: 0;
+            top: 0;
+            right: -20px;
+            transition: 0.5s;
+        }
+
+        .button:hover span 
+        {
+            padding-right: 25px;
+        }
+
+        .button:hover span:after 
+        {
+            opacity: 1;
+            right: 0;
+        }
+
+        #para
+        {
+            color: white; 
+            font-size: 25px;
+            margin-left: 10px;
+            margin-top: 10px;
+            margin-bottom: 15px;
+            padding: 5px;
+        }
+
+        main div p
+        {
+            color: white; 
+            font-family: "Arial";
+            font-size: 18px;
+            margin: 20px 0 0 20px;
+            white-space: nowrap;
+            overflow: hidden;
+            width: 30em;
+            /*added animation property to show the character one at a time*/
+            animation: type 8s steps(60, end); 
+        }
+
+        @keyframes type
+        { 
+            from { 
+                    width: 0; 
+                 } 
+        }
+    </style>
+
+</head>
+<body>
+    <header>
+
+    </header>
+    <main>
+        <h1>Class 1 Lab</h1>
+
+        <p class="p1">What is your name?</p>
+        <p class="p2">What is your favorite color?</p>
+        <p class="p3">Which do you like more?      
+            <li>Birds</li>
+            <li>Dogs</li>
+            <li>Cats</li>
+        </p>
+        <p class="p4">OK, last question, Do you like video games?    
+            <li>Yes</li>
+            <li>No</li>
+        </p>
+
+        <button class="button" type="button" onclick="takeInput()"><span>Answer the questions</span></button>
+        <div id="para"><p> xxxxxxx </p></div>
+
+    </main>
+    <footer>
+
+    </footer>
+    <script>
+
+        function takeInput()
+        {
+            let birdMas = "";
+            let dogMas = "";
+            let catMas = "";
+
+            let noMas = "";
+            let yesMas = "";
+
+            let q1 = prompt('What is your name?');
+                console.log(q1);
+            let q2 = prompt('What is your favorite color?');
+                console.log(q2);
+            let q3 = prompt('Which do you like more? \n Birds \n Dogs \n Cats');
+                console.log(q3);
+            let q4 = prompt('OK, last question, Do you like video games? \n Yes \n No')
+                console.log(q4);
+
+            if(q3 == "Birds" || q3 == "birds")
+            {
+                birdMas = 'Hello ' + q1 + ', ' + q2 + ' is a cool color. <br> You like ' + q3 + '! you have a great taste.';
+                if(q4 == "No" || q4 == "no")
+                {
+                    noMas = "Really!! you dont like video games, what a shame."
+                    document.getElementById("para").innerHTML = "<p>" + birdMas + "<br>" + noMas + "</p>";
+                }
+                else if(q4 == "Yes" || q4 == "yes")
+                {
+                    yesMas = "You like video games, great, your all good."
+                    document.getElementById("para").innerHTML = "<p>" + birdMas + "<br>" + yesMas + "</p>";
+                }
+                else
+                {
+                    document.getElementById("para").innerHTML = "<p>Choose yes/no only please.</p>";
+                }
+            }
+            else if(q3 == "Dogs" || q3 == "dogs")
+            {
+                dogMas = 'Hello ' + q1 + ', ' + q2 + ' is a cool color. <br> You like ' + q3 + '! i dont to be honest.';
+                if(q4 == "No" || q4 == "no")
+                {
+                    noMas = "Really!! you dont like video games, what a shame."
+                    document.getElementById("para").innerHTML = "<p>" + dogMas + "<br>" + noMas + "</p>";
+                }
+                else if(q4 == "Yes" || q4 == "yes")
+                {
+                    yesMas = "You like video games, great, your all good."
+                    document.getElementById("para").innerHTML = "<p>" + dogMas + "<br>" + yesMas + "</p>";
+                }
+                else
+                {
+                    document.getElementById("para").innerHTML = "<p>Choose yes/no only please.</p>";
+                }
+            }
+            else if(q3 == "Cats" || q3 == "cats")
+            {
+                catMas = 'Hello ' + q1 + ', ' + q2 + ' is a cool color. <br> You like ' + q3 + '! well, they are ok i guess.';
+                if(q4 == "No" || q4 == "no")
+                {
+                    noMas = "Really!! you dont like video games, what a shame."
+                    document.getElementById("para").innerHTML = "<p>" + catMas + "<br>" + noMas + "</p>";
+                }
+                else if(q4 == "Yes" || q4 == "yes")
+                {
+                    yesMas = "You like video games, great, your all good."
+                    document.getElementById("para").innerHTML = "<p>" + catMas + "<br>" + yesMas + "</p>";
+                }
+                else
+                {
+                    document.getElementById("para").innerHTML = "<p>Choose yes/no only please.</p>";
+                }
+            }
+            else
+            {
+                document.getElementById("para").innerHTML = "<p>Choose only from these please.</p>";
+            }
+            
+        }
+    </script>
+</body>
+</html>
